@@ -36,6 +36,7 @@ class Welcome(arcade.Window):
         arcade.draw_circle_filled(
             SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, RADIUS, arcade.color.BLUE
         )
+        arcade.draw_text("YOU DIED",SCREEN_WIDTH/2-320,SCREEN_HEIGHT/2,arcade.color.RED,80,160,'left',"times new roman")
 
 # Main code entry point
 if __name__ == "__main__":
