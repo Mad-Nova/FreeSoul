@@ -4,6 +4,7 @@
 # Imports
 import arcade
 import random
+import json
 
 from arcade.key import LEFT
 
@@ -52,11 +53,19 @@ class ArcaneDodger(arcade.Window):
         """Get the game ready to play"""
         # Set the background color
         arcade.set_background_color(arcade.color.BUD_GREEN)
+
+        # Open saved time record
+        f = open("tests_tutorials/records.json")
+        records = json.load(f)
         
+        # Set state of current playthrough
         self.paused = True
         self.dead = False
         self.timer = 0.0
-        self.besttime = 0.0
+        self.besttime = records['best_time']
+
+        # Close json file
+        f.close()
 
         # Set up the freesoul
         self.freesoul = arcade.Sprite("images/hero_sword.png", SCALING)
@@ -186,6 +195,12 @@ class ArcaneDodger(arcade.Window):
             modifiers {int} -- Which modifiers were pressed
         """
         if symbol == arcade.key.Q:
+            f = open('tests_tutorials/records.json', "r")
+            savegame = json.load(f)   #savegame is now a Python dictionary
+            f.close()
+            savegame['best_time'] = self.besttime
+            with open('tests_tutorials/records.json', "w") as f:
+                json.dump(savegame, f)
             # Quit immediately
             arcade.close_window()
 
