@@ -1,5 +1,18 @@
 - Get Python with Arcade library working in Visual Studio Code, or possibly Pycharm if VSC is butts / I get frustrated.
+COMPLETED
 
 - Render a window with a character who can move.
+COMPLETED
 
 - Find a way to run text over it.
+SORT OF
+
+- Manage nonlethal collisions
+
+- Find a better way to manage text
+
+- Find a way to manage dialogue options
+
+- Load game states from a file
+
+- Load transitions between areas
